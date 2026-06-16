@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appology Inc | Enterprise Architecture & Software Systems</title>
+    <title>Appology Inc | Production Software Engineering & AI Architecture</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -13,210 +13,254 @@
         }
         .mono { font-family: 'JetBrains Mono', monospace; }
         
-        /* Premium Background Grid Pattern */
         .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
         }
     </style>
 </head>
-<body class="bg-[#030712] text-gray-100 min-h-screen overflow-x-hidden selection:bg-blue-500/30 bg-grid">
+<body class="bg-[#05070F] text-gray-200 min-h-screen overflow-x-hidden selection:bg-blue-500/30 bg-grid">
 
-    <!-- Ambient Glow Drops -->
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
-    <div class="absolute top-[800px] right-1/4 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <!-- Ambient Radial Lighting effects -->
+    <div class="absolute top-0 left-1/3 w-[700px] h-[700px] bg-blue-500/[0.06] rounded-full blur-[150px] pointer-events-none z-0"></div>
+    <div class="absolute top-[600px] right-1/4 w-[600px] h-[600px] bg-purple-500/[0.04] rounded-full blur-[130px] pointer-events-none z-0"></div>
 
-    <!-- Frosted Glass Navigation Bar -->
-    <header class="border-b border-white/[0.06] backdrop-blur-xl bg-[#030712]/70 sticky top-0 z-50 transition-all duration-300">
+    <!-- Global Navigation Header -->
+    <header class="border-b border-white/[0.05] backdrop-blur-xl bg-[#05070F]/75 sticky top-0 z-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Matrix Brand Asset Block -->
-            <div class="flex items-center gap-3.5 group cursor-pointer">
-                <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-emerald-500/30 bg-black/80 flex-shrink-0 shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/10">
-                    <canvas id="matrixCanvas" class="w-full h-full opacity-85"></canvas>
+            <!-- Tech-Infused Brand Logo Asset -->
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-emerald-500/20 bg-black flex-shrink-0 ring-1 ring-emerald-500/10">
+                    <canvas id="matrixCanvas" class="w-full h-full opacity-90"></canvas>
                 </div>
                 <div class="flex flex-col">
-                    <span class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">APPOLOGY</span>
-                    <span class="text-[9px] font-medium tracking-[0.2em] text-blue-400/80 uppercase mono -mt-1">SYSTEMS INC</span>
+                    <span class="text-lg font-extrabold tracking-tight text-white">APPOLOGY</span>
+                    <span class="text-[9px] font-bold tracking-[0.25em] text-blue-400 uppercase mono -mt-1">SYSTEMS INC</span>
                 </div>
             </div>
 
-            <!-- Main Menu Navigation -->
+            <!-- Desktop Menu Options -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-                <a href="#capabilities" class="hover:text-white transition-colors duration-200">Capabilities</a>
-                <a href="#pipeline" class="hover:text-white transition-colors duration-200">Production Pipeline</a>
-                <a href="mailto:aerocode95@gmail.com" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium transition-all duration-200 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 active:scale-[0.98]">
-                    Deploy Request
+                <a href="#architecture" class="hover:text-white transition-colors">Core Focus</a>
+                <a href="#pipeline" class="hover:text-white transition-colors">Application Pipeline</a>
+                <a href="mailto:aerocode95@gmail.com" class="px-4 py-2.5 rounded-xl bg-white text-black font-semibold text-xs tracking-wide uppercase hover:bg-gray-200 transition shadow-lg shadow-white/5">
+                    Connect Studio
                 </a>
             </nav>
 
-            <!-- Mobile Navigation Toggle Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition" aria-label="Toggle Menu">
-                <svg id="menuIcon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <!-- Adaptive Mobile Trigger Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition" aria-label="Toggle Menu">
+                <svg id="menuIcon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
 
-        <!-- Mobile Dropdown Menu Container -->
-        <div id="mobileMenu" class="hidden md:hidden border-b border-white/[0.06] bg-[#030712]/95 backdrop-blur-xl px-6 py-6 space-y-4">
-            <a href="#capabilities" onclick="toggleMobileMenu()" class="block text-base font-medium text-gray-400 hover:text-white">Capabilities</a>
-            <a href="#pipeline" onclick="toggleMobileMenu()" class="block text-base font-medium text-gray-400 hover:text-white">Production Pipeline</a>
-            <a href="mailto:aerocode95@gmail.com" class="block w-full text-center px-4 py-3 rounded-xl bg-blue-600 text-white font-medium">Deploy Request</a>
+        <!-- Mobile Dynamic Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-white/[0.05] bg-[#05070F]/98 backdrop-blur-xl px-6 py-6 space-y-4">
+            <a href="#architecture" onclick="toggleMobileMenu()" class="block text-sm font-medium text-gray-400 hover:text-white">Core Focus</a>
+            <a href="#pipeline" onclick="toggleMobileMenu()" class="block text-sm font-medium text-gray-400 hover:text-white">Application Pipeline</a>
+            <a href="mailto:aerocode95@gmail.com" class="block w-full text-center py-3 rounded-xl bg-white text-black text-xs font-bold uppercase tracking-wide">Connect Studio</a>
         </div>
     </header>
 
-    <!-- Hero Display Frame -->
-    <main class="relative z-10">
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 text-center">
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-blue-400 uppercase bg-blue-500/[0.06] rounded-full border border-blue-500/20 mb-8 backdrop-blur-sm animate-pulse">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-                Next-Gen Production Infrastructure
+    <!-- Structural Layout Grid Base -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Hero Section Frame -->
+        <section class="pt-20 pb-16 md:pt-28 md:pb-24 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-medium tracking-wider text-emerald-400 uppercase bg-emerald-500/[0.05] rounded-full border border-emerald-500/20 mb-6 backdrop-blur-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Active Engineering Nodes Operational
             </div>
             
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1] md:leading-[1.15]">
-                Architecting High-Performance <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Software Systems</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.15]">
+                Production Software and <br class="hidden sm:inline"/>
+                <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Intelligent Backends</span>
             </h1>
             
-            <p class="text-gray-400 text-base sm:text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed font-light">
-                We design and build robust backend engines, automated infrastructure layout layers, and tailored full-stack applications engineered for speed and ultimate scale.
+            <p class="text-gray-400 text-sm sm:text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed font-light">
+                Appology Systems Inc architectures low-latency automation engines, custom database-backed web services, and modular AI orchestration layers built for enterprise scale.
             </p>
+        </section>
 
-            <!-- Interactive UI Tech Widget (Amaze Factor) -->
-            <div class="mt-16 max-w-3xl mx-auto bg-gray-900/30 border border-white/[0.06] rounded-2xl p-4 md:p-6 backdrop-blur-sm shadow-2xl text-left shadow-black/40 relative group hover:border-white/[0.1] transition-all duration-300">
-                <div class="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-4">
+        <!-- System Diagnostic Dynamic Component (Amaze Widget) -->
+        <section class="mb-24">
+            <div class="bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.06] rounded-2xl p-5 md:p-6 shadow-2xl text-left relative overflow-hidden group">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/[0.06] pb-4 mb-4 gap-2">
                     <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-red-500/40"></span>
-                        <span class="w-3 h-3 rounded-full bg-yellow-500/40"></span>
-                        <span class="w-3 h-3 rounded-full bg-green-500/40"></span>
-                        <span class="text-xs text-gray-500 font-medium tracking-wide ml-2 mono">appology_daemon.sh</span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/30"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/30"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-500/30"></span>
+                        <span class="text-xs text-gray-400 font-medium tracking-wide ml-2 mono">appology_orchestration_cluster.log</span>
                     </div>
-                    <span class="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded mono border border-emerald-500/20">LIVE COMPILING</span>
+                    <div class="flex items-center gap-4 text-[10px] uppercase font-mono text-gray-500">
+                        <span>Active Connections: <strong class="text-gray-300">Verified</strong></span>
+                        <span>Latency: <strong class="text-emerald-400">0.24ms</strong></span>
+                    </div>
                 </div>
-                <div class="space-y-2 font-mono text-xs sm:text-sm text-gray-400 overflow-x-auto whitespace-nowrap py-1 scrollbar-none">
-                    <p class="text-gray-500">&gt; initialising core microservice allocation cluster...</p>
-                    <p>&gt; telemetry verified: <span class="text-blue-400">async_state_routines</span> initiated [OK]</p>
-                    <p>&gt; linking relational mappings via ORM controller modules...</p>
-                    <p>&gt; deployment state status: <span class="text-purple-400">Appology System Ingestion Active</span> (0.42ms processing latency)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Capabilities Grid Blueprint -->
-        <section id="capabilities" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/[0.06]">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
-                <div>
-                    <span class="text-xs font-bold tracking-widest text-blue-400 uppercase mono">OPERATIONAL BASE</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Core Capabilities</h2>
-                </div>
-                <p class="text-gray-400 text-sm max-w-md font-light leading-relaxed">
-                    Utilizing clean, deterministic programming methodologies to build scalable platforms that optimize business operations.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] hover:border-blue-500/30 transition-all duration-300 group hover:-translate-y-1 shadow-sm">
-                    <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg shadow-inner group-hover:scale-110 transition-transform duration-300">💻</div>
-                    <h3 class="text-lg font-bold text-white mt-6 mb-2">Full-Stack Architecture</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">Building modern web client systems connected directly to blazing-fast backend application routing loops.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] hover:border-indigo-500/30 transition-all duration-300 group hover:-translate-y-1 shadow-sm">
-                    <div class="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-lg shadow-inner group-hover:scale-110 transition-transform duration-300">⚙️</div>
-                    <h3 class="text-lg font-bold text-white mt-6 mb-2">Automated Systems</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">Designing structured schemas, custom database optimization parameters, and background pipeline managers.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] hover:border-purple-500/30 transition-all duration-300 group hover:-translate-y-1 sm:col-span-2 lg:col-span-1 shadow-sm">
-                    <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-lg shadow-inner group-hover:scale-110 transition-transform duration-300">⚡</div>
-                    <h3 class="text-lg font-bold text-white mt-6 mb-2">Automation Tooling</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">Developing bespoke scripting engines and low-latency tools designed to accelerate output frameworks.</p>
+                <div class="space-y-2 font-mono text-xs text-gray-400 overflow-x-auto whitespace-nowrap py-1">
+                    <p class="text-gray-500">&gt; Loading modular framework endpoints...</p>
+                    <p>&gt; Injecting structural context memories into multi-turn conversational pipelines... <span class="text-blue-400">[CONNECTED]</span></p>
+                    <p>&gt; Syncing secure relational data mappings with transactional database models... <span class="text-purple-400">[SYNCED]</span></p>
+                    <p>&gt; Streaming real-time analytical token matrices... <span class="text-emerald-400">Active Pipeline Steady (100% Core Integrity)</span></p>
                 </div>
             </div>
         </section>
 
-        <!-- Product Pipeline Blueprint Showcase -->
-        <section id="pipeline" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/[0.06]">
-            <div class="flex items-center justify-between mb-16">
-                <div>
-                    <span class="text-xs font-bold tracking-widest text-indigo-400 uppercase mono">PROPRIETARY ECOSYSTEM</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Production App Pipeline</h2>
-                </div>
-                <span class="hidden sm:inline-flex text-xs font-semibold font-mono text-gray-500 bg-white/[0.02] px-3 py-1.5 rounded-lg border border-white/[0.05]">STABLE STAGED DEPLOYMENTS</span>
+        <!-- Core Focus / Capabilities Bento Layout -->
+        <section id="architecture" class="py-16 border-t border-white/[0.05]">
+            <div class="mb-12">
+                <span class="text-xs font-bold tracking-widest text-blue-400 uppercase mono">CORE ENGINEERING SPECIFICATION</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Architectural Standards</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Pipeline Item 1 -->
-                <div class="group relative bg-white/[0.01] border border-white/[0.05] rounded-2xl overflow-hidden hover:border-blue-500/20 transition-all duration-300 p-8 flex flex-col justify-between shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bento Block 1 -->
+                <div class="p-6 md:p-8 rounded-2xl bg-white/[0.01] border border-white/[0.04] flex flex-col justify-between hover:border-blue-500/20 transition-all duration-300">
                     <div>
-                        <div class="flex items-center justify-between gap-4">
-                            <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md border border-blue-500/10 tracking-wider uppercase font-medium">Orchestration Base</span>
-                            <span class="text-xs text-gray-500 mono font-light">v1.4.0</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mt-5 mb-2 group-hover:text-blue-400 transition-colors duration-200">Flow Core Engine</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed font-light mb-8">A highly modular orchestration controller engineered to run background system tasks, coordinate complex state loops, and manage transaction routes.</p>
+                        <div class="text-xl">🤖</div>
+                        <h3 class="text-base font-bold text-white mt-4 mb-2">GenAI Framework Design</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-light">Structuring modular semantic engines, multi-turn dialogue state validation, and system grounding layers directly leveraging high-performance API architectures.</p>
                     </div>
-                    <div class="flex flex-wrap gap-2 text-[11px] font-mono text-gray-400 bg-white/[0.02] p-3 rounded-xl border border-white/[0.03]">
-                        <span class="text-gray-300">State Verifiers</span> <span class="text-gray-600">•</span> 
-                        <span class="text-gray-300">Relational DB</span> <span class="text-gray-600">•</span> 
-                        <span class="text-gray-300">System Execution</span>
-                    </div>
+                    <span class="text-[10px] font-mono text-blue-400 uppercase tracking-wider mt-6 block">Context Memory Layers</span>
                 </div>
-
-                <!-- Pipeline Item 2 -->
-                <div class="group relative bg-white/[0.01] border border-white/[0.05] rounded-2xl overflow-hidden hover:border-indigo-500/20 transition-all duration-300 p-8 flex flex-col justify-between shadow-xl">
+                <!-- Bento Block 2 -->
+                <div class="p-6 md:p-8 rounded-2xl bg-white/[0.01] border border-white/[0.04] flex flex-col justify-between hover:border-indigo-500/20 transition-all duration-300">
                     <div>
-                        <div class="flex items-center justify-between gap-4">
-                            <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/10 tracking-wider uppercase font-medium">Application Frontend</span>
-                            <span class="text-xs text-gray-500 mono font-light">v1.0.2</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mt-5 mb-2 group-hover:text-indigo-400 transition-colors duration-200">Appology UI Suite</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed font-light mb-8">A curated environment of performant web user interfaces structured on rigorous design guides to prioritize visual alignment, lightning speeds, and simple monitoring inputs.</p>
+                        <div class="text-xl">⚙️</div>
+                        <h3 class="text-base font-bold text-white mt-4 mb-2">Automated MLOps Solutions</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-light">Deploying end-to-end continuous analytical logic frameworks, handling raw record cleaning matrices, and provisioning cloud application hosting configurations.</p>
                     </div>
-                    <div class="flex flex-wrap gap-2 text-[11px] font-mono text-gray-400 bg-white/[0.02] p-3 rounded-xl border border-white/[0.03]">
-                        <span class="text-gray-300">Responsive Layouts</span> <span class="text-gray-600">•</span> 
-                        <span class="text-gray-300">Unified Elements</span> <span class="text-gray-600">•</span> 
-                        <span class="text-gray-300">REST Integrations</span>
+                    <span class="text-[10px] font-mono text-indigo-400 uppercase tracking-wider mt-6 block">Continuous Evaluation</span>
+                </div>
+                <!-- Bento Block 3 -->
+                <div class="p-6 md:p-8 rounded-2xl bg-white/[0.01] border border-white/[0.04] flex flex-col justify-between hover:border-purple-500/20 transition-all duration-300">
+                    <div>
+                        <div class="text-xl">💾</div>
+                        <h3 class="text-base font-bold text-white mt-4 mb-2">Structured Microservices</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-light">Developing light, relational microservice routers utilizing persistent databases, modern object-relational mapping controllers, and performant data routing structures.</p>
                     </div>
+                    <span class="text-[10px] font-mono text-purple-400 uppercase tracking-wider mt-6 block">Relational Schemas</span>
                 </div>
             </div>
         </section>
+
+        <!-- Deep-Dive Application Pipeline Section (Real Information) -->
+        <section id="pipeline" class="py-16 border-t border-white/[0.05]">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-2">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-purple-400 uppercase mono">ACTIVE INTERNAL DEVELOPMENTS</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Application Production Pipeline</h2>
+                </div>
+                <span class="inline-flex self-start sm:self-center text-[10px] font-mono text-gray-400 bg-white/[0.03] px-3 py-1.5 rounded-lg border border-white/[0.05] tracking-wider uppercase">
+                    Compiled Assemblies Only
+                </span>
+            </div>
+
+            <!-- Pipeline Stack Links -->
+            <div class="space-y-6">
+                
+                <!-- Product Card 1: Intelligent Agent Engine -->
+                <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-r from-white/[0.01] to-transparent border border-white/[0.04] hover:border-white/[0.08] transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                        <div class="space-y-2 max-w-2xl">
+                            <div class="flex items-center gap-3">
+                                <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider uppercase bg-blue-500/10 border border-blue-500/20 text-blue-400">GenAI Core</span>
+                                <h3 class="text-lg font-bold text-white">Context-Aware Conversational Orchestrator</h3>
+                            </div>
+                            <p class="text-gray-400 text-xs md:text-sm font-light leading-relaxed">
+                                A production-ready, modular system backend engineered to maintain complete multi-turn conversation memory arrays. Features intelligent prompt routing, domain-specific background contextual anchoring, and native integration layers built directly on top of modern high-fidelity Generative AI APIs.
+                            </p>
+                        </div>
+                        <div class="flex md:flex-col items-center md:items-end justify-between md:justify-start flex-wrap gap-2 pt-2 md:pt-0 border-t border-white/[0.04] md:border-t-0">
+                            <span class="text-[11px] font-mono text-gray-500">Architecture Integration</span>
+                            <div class="flex gap-2 font-mono text-[10px] text-gray-300 bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04]">
+                                <span>Gemini API</span> • <span>Flask Memory</span> • <span>SQLAlchemy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Analytics Ingestion Framework -->
+                <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-r from-white/[0.01] to-transparent border border-white/[0.04] hover:border-white/[0.08] transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                        <div class="space-y-2 max-w-2xl">
+                            <div class="flex items-center gap-3">
+                                <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider uppercase bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">MLOps Stack</span>
+                                <h3 class="text-lg font-bold text-white">Automated Sentiment Parsing Engine</h3>
+                            </div>
+                            <p class="text-gray-400 text-xs md:text-sm font-light leading-relaxed">
+                                An end-to-end user-review parsing platform operating under strict MLOps principles. The infrastructure automates raw streaming record extraction, text data isolation, exploratory quantitative analysis, and directly hooks into live cloud deployment clusters for sustained predictive metrics delivery.
+                            </p>
+                        </div>
+                        <div class="flex md:flex-col items-center md:items-end justify-between md:justify-start flex-wrap gap-2 pt-2 md:pt-0 border-t border-white/[0.04] md:border-t-0">
+                            <span class="text-[11px] font-mono text-gray-500">Pipeline Dependencies</span>
+                            <div class="flex gap-2 font-mono text-[10px] text-gray-300 bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04]">
+                                <span>Python Pipeline</span> • <span>EDA Matrix</span> • <span>Cloud Deploy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: High-Performance Microservice -->
+                <div class="p-6 md:p-8 rounded-2xl bg-gradient-to-r from-white/[0.01] to-transparent border border-white/[0.04] hover:border-white/[0.08] transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                        <div class="space-y-2 max-w-2xl">
+                            <div class="flex items-center gap-3">
+                                <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider uppercase bg-purple-500/10 border border-purple-500/20 text-purple-400">Microservices</span>
+                                <h3 class="text-lg font-bold text-white">High-Throughput URL Resolution Engine</h3>
+                            </div>
+                            <p class="text-gray-400 text-xs md:text-sm font-light leading-relaxed">
+                                A clean, lightweight web service designed for instantaneous relational data compression and transactional routing. Driven by a fast SQL structural storage pattern, object-relational abstraction layers, and a modular framework to guarantee stable data persistence under persistent concurrency spikes.
+                            </p>
+                        </div>
+                        <div class="flex md:flex-col items-center md:items-end justify-between md:justify-start flex-wrap gap-2 pt-2 md:pt-0 border-t border-white/[0.04] md:border-t-0">
+                            <span class="text-[11px] font-mono text-gray-500">Core Software Stack</span>
+                            <div class="flex gap-2 font-mono text-[10px] text-gray-300 bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04]">
+                                <span>Flask MVC</span> • <span>SQLite Core</span> • <span>SQLAlchemy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
-    <!-- Refined Corporate Footer -->
-    <footer class="border-t border-white/[0.06] bg-[#02040a] text-gray-500 text-xs py-12 relative z-10">
+    <!-- Structural Corporate Footer -->
+    <footer class="border-t border-white/[0.05] bg-[#020307] text-gray-500 text-xs py-12 mt-12">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
             <div>
-                <p class="font-medium text-gray-400">&copy; 2026 Appology Systems Inc. All rights reserved.</p>
-                <p class="text-[11px] text-gray-600 mt-0.5">Engineered with absolute precision.</p>
+                <p class="font-medium text-gray-400">&copy; 2026 Appology Systems Inc. All architecture rights reserved.</p>
+                <p class="text-[11px] text-gray-600 mt-1">Engineered with absolute mechanical and mathematical precision.</p>
             </div>
-            <div class="flex gap-8 font-medium">
-                <a href="mailto:aerocode95@gmail.com" class="text-gray-400 hover:text-white transition">Inquiries Desk</a>
-                <a href="#capabilities" class="hover:text-gray-300 transition">Systems Base</a>
+            <div class="flex gap-8 font-medium text-gray-400">
+                <a href="mailto:aerocode95@gmail.com" class="hover:text-white transition-colors">Inquiries Desk</a>
+                <a href="#architecture" class="hover:text-white transition-colors">System Frameworks</a>
             </div>
         </div>
     </footer>
 
-    <!-- High-Performance Matrix Code Stream Logic -->
+    <!-- Digital Matrix Code Loop Logic -->
     <script>
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
 
-        // Square Aspect Ratio Scaling Boundary
         canvas.width = 44;
         canvas.height = 44;
 
         const alphabet = '01XYZ<>[]{}/\\';
         const fontSize = 10;
         const columns = canvas.width / fontSize;
-        const rainDrops = Array(Math.ceil(columns)).fill(1);
+        const rainDrops = Array(Math.floor(columns)).fill(1);
 
         function drawMatrixStream() {
-            // Semi-transparent overlay mask to create high-speed drop trailing effects
-            ctx.fillStyle = 'rgba(3, 7, 18, 0.2)';
+            ctx.fillStyle = 'rgba(5, 7, 15, 0.25)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#10B981'; // Vivid cyber emerald tone
+            ctx.fillStyle = '#10B981'; 
             ctx.font = 'bold ' + fontSize + 'px monospace';
 
             for (let x = 0; x < rainDrops.length; x++) {
@@ -230,10 +274,8 @@
             }
         }
 
-        // Run animation loop smoothly at standard speed matrix cycle metrics
         setInterval(drawMatrixStream, 75);
 
-        // Responsive Hamburger Drawer Logic
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
