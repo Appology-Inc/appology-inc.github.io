@@ -9,27 +9,32 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020205; }
         
+        /* Smooth moving background ambient glows */
         @keyframes pulseGlow {
-            0%, 100__ { transform: scale(1) translate(0px, 0px); opacity: 0.4; }
-            50__ { transform: scale(1.1) translate(30px, -20px); opacity: 0.6; }
+            0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.4; }
+            50% { transform: scale(1.1) translate(30px, -20px); opacity: 0.6; }
         }
-        .animate-glow { animation: pulseGlow 10s infinite ease-in-out; }
+        .animate-glow { animation: pulseGlow 12s infinite ease-in-out; }
+
+        /* Elegant custom rotational animation for the logo */
+        @keyframes slowSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-slow-spin { animation: slowSpin 8s linear infinite; }
     </style>
 </head>
 <body class="text-gray-200 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
 
-    <!-- Ambient Widescreen Glows -->
-    <div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-bl from-blue-600/20 via-purple-600/10 to-transparent rounded-full blur-[120px] pointer-events-none animate-glow z-0"></div>
-    <div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-tr from-indigo-600/10 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none z-0"></div>
+    <!-- Ambient Widescreen Glows (Spreads dynamically across display edges) -->
+    <div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-bl from-blue-600/20 via-purple-600/10 to-transparent rounded-full blur-[140px] pointer-events-none animate-glow z-0"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-tr from-indigo-600/10 via-transparent to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
 
     <!-- Full-Width Header -->
     <header class="w-full px-6 md:px-12 lg:px-20 py-8 relative z-10 flex items-center justify-between border-b border-white/[0.04] backdrop-blur-md bg-[#020205]/40">
-        <div class="flex items-center gap-3">
-            <!-- Smooth Animated Live Radar Beacon -->
-            <span class="relative flex h-2.5 w-2.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
+        <div class="flex items-center gap-3.5">
+            <!-- Premium Rotating Gradient Icon Animation -->
+            <div class="w-3.5 h-3.5 bg-gradient-to-tr from-blue-500 via-indigo-400 to-purple-500 rounded-sm animate-slow-spin shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
             <span class="text-lg font-bold tracking-tight text-white">Appology Inc.</span>
         </div>
         <a href="mailto:aerocode95@gmail.com" class="text-sm font-medium text-gray-400 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/[0.08] hover:border-white/20 bg-white/[0.02]">
@@ -37,12 +42,12 @@
         </a>
     </header>
 
-    <!-- Expansive Main Content Layout -->
-    <main class="w-full px-6 md:px-12 lg:px-20 py-16 lg:py-24 relative z-10 flex-grow flex items-center">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 w-full items-center">
+    <!-- Expansive Main Content Layout (Unconstrained to utilize full display height naturally) -->
+    <main class="w-full px-6 md:px-12 lg:px-20 pt-16 pb-24 md:pt-24 md:pb-36 relative z-10 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 w-full items-start">
             
-            <!-- Left Column: Simple Header Copy -->
-            <div class="lg:col-span-6 space-y-6">
+            <!-- Left Side: Clean, Bold Header Branding -->
+            <div class="lg:col-span-6 space-y-6 lg:sticky lg:top-32">
                 <span class="text-xs font-semibold tracking-widest text-blue-400 uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20 inline-block">
                     Software Development Studio
                 </span>
@@ -56,21 +61,21 @@
                 </p>
             </div>
 
-            <!-- Right Column: Clean Project Grid Box -->
+            <!-- Right Side: Clean Project Grid Box -->
             <div class="lg:col-span-6 w-full">
-                <div class="bg-white/[0.02] border border-white/[0.06] rounded-3xl p-8 backdrop-blur-xl shadow-2xl relative group overflow-hidden">
+                <div class="bg-white/[0.01] border border-white/[0.05] rounded-3xl p-8 backdrop-blur-xl shadow-2xl relative group overflow-hidden">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
                     
                     <div class="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-8">
                         <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400">Organization Projects</h2>
                         <span class="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
-                            <span class="w-1.5 h-1.5 rounded-full bg-gray-600"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-gray-700"></span>
                             0 Active
                         </span>
                     </div>
 
-                    <div class="py-16 px-4 border border-dashed border-white/[0.08] rounded-2xl text-center bg-black/20">
-                        <div class="text-2xl mb-3 opacity-60">📁</div>
+                    <div class="py-20 px-4 border border-dashed border-white/[0.08] rounded-2xl text-center bg-black/20">
+                        <div class="text-2xl mb-3 opacity-50">📁</div>
                         <p class="text-sm font-medium text-gray-300">Pipeline is currently private</p>
                         <p class="text-xs text-gray-500 mt-1 max-w-xs mx-auto">When public organization repositories are ready, they will appear on this grid interface.</p>
                     </div>
@@ -80,13 +85,11 @@
         </div>
     </main>
 
-    <!-- Full-Width Simplified Footer -->
-    <footer class="w-full px-6 md:px-12 lg:px-20 py-8 border-t border-white/[0.04] text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4 relative z-10 bg-[#020205]/60 backdrop-blur-sm">
-        <span>&copy; 2026 Appology Inc. All rights reserved.</span>
-        <!-- Plain English operational message -->
-        <span class="text-emerald-400 font-medium tracking-wide flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        </span>
+    <!-- Completely Cleaned Full-Width Footer -->
+    <footer class="w-full px-6 md:px-12 lg:px-20 py-8 border-t border-white/[0.04] text-xs text-gray-500 relative z-10 bg-[#020205]/60 backdrop-blur-sm">
+        <div class="max-w-none mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 Appology Inc. All rights reserved.</span>
+        </div>
     </footer>
 
 </body>
