@@ -1,149 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aero Code | Enterprise Data Architecture & Software Systems</title>
+    <title>Appology Inc | Enterprise Architecture & Software Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            -webkit-font-smoothing: antialiased;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Premium Background Grid Pattern */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
     </style>
 </head>
-<body class="bg-[#0B0F19] text-gray-100 min-h-screen selection:bg-blue-500/30">
+<body class="bg-[#030712] text-gray-100 min-h-screen overflow-x-hidden selection:bg-blue-500/30 bg-grid">
 
-    <!-- Top Navigation Bar -->
-    <header class="border-b border-gray-800/60 backdrop-blur-md bg-[#0B0F19]/70 sticky top-0 z-50">
-        <!-- Unified layout container to perfectly align with content below -->
-        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Ambient Glow Drops -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+    <div class="absolute top-[800px] right-1/4 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Frosted Glass Navigation Bar -->
+    <header class="border-b border-white/[0.06] backdrop-blur-xl bg-[#030712]/70 sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Matrix Icon + Brand Wrapper -->
-            <div class="flex items-center gap-3">
-                <!-- Matrix Rain Digital Icon Stream -->
-                <div class="relative w-10 h-10 rounded-lg overflow-hidden border border-emerald-500/30 bg-black/50 flex-shrink-0">
-                    <canvas id="matrixCanvas" class="w-full h-full"></canvas>
+            <!-- Matrix Brand Asset Block -->
+            <div class="flex items-center gap-3.5 group cursor-pointer">
+                <div class="relative w-9 h-9 rounded-xl overflow-hidden border border-emerald-500/30 bg-black/80 flex-shrink-0 shadow-lg shadow-emerald-500/5 ring-1 ring-emerald-500/10">
+                    <canvas id="matrixCanvas" class="w-full h-full opacity-85"></canvas>
                 </div>
-                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">AERO CODE</span>
+                <div class="flex flex-col">
+                    <span class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">APPOLOGY</span>
+                    <span class="text-[9px] font-medium tracking-[0.2em] text-blue-400/80 uppercase mono -mt-1">SYSTEMS INC</span>
+                </div>
             </div>
 
-            <!-- Nav Options -->
+            <!-- Main Menu Navigation -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-                <a href="#services" class="hover:text-white transition">Services</a>
-                <a href="#apps" class="hover:text-white transition">App Pipeline</a>
-                <a href="mailto:aerocode95@gmail.com" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/20">Contact Studio</a>
+                <a href="#capabilities" class="hover:text-white transition-colors duration-200">Capabilities</a>
+                <a href="#pipeline" class="hover:text-white transition-colors duration-200">Production Pipeline</a>
+                <a href="mailto:aerocode95@gmail.com" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium transition-all duration-200 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 active:scale-[0.98]">
+                    Deploy Request
+                </a>
             </nav>
+
+            <!-- Mobile Navigation Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition" aria-label="Toggle Menu">
+                <svg id="menuIcon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu Container -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-white/[0.06] bg-[#030712]/95 backdrop-blur-xl px-6 py-6 space-y-4">
+            <a href="#capabilities" onclick="toggleMobileMenu()" class="block text-base font-medium text-gray-400 hover:text-white">Capabilities</a>
+            <a href="#pipeline" onclick="toggleMobileMenu()" class="block text-base font-medium text-gray-400 hover:text-white">Production Pipeline</a>
+            <a href="mailto:aerocode95@gmail.com" class="block w-full text-center px-4 py-3 rounded-xl bg-blue-600 text-white font-medium">Deploy Request</a>
         </div>
     </header>
 
-    <!-- Hero Content Block -->
-    <section class="max-w-5xl mx-auto px-6 pt-24 pb-20 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <span class="px-3.5 py-1.5 text-xs font-semibold tracking-wider text-blue-400 uppercase bg-blue-500/10 rounded-full border border-blue-500/20">Software Engineering Studio</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 max-w-3xl mx-auto leading-[1.2]">
-            Engineering Intelligent <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Software Solutions</span>
-        </h1>
-        <p class="text-gray-400 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-            We architect high-performance software applications, automated system backends, and custom internal tools structured for scale and built on precision codebases.
-        </p>
-    </section>
+    <!-- Hero Display Frame -->
+    <main class="relative z-10">
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 text-center">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 text-xs font-semibold tracking-wider text-blue-400 uppercase bg-blue-500/[0.06] rounded-full border border-blue-500/20 mb-8 backdrop-blur-sm animate-pulse">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                Next-Gen Production Infrastructure
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1] md:leading-[1.15]">
+                Architecting High-Performance <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Software Systems</span>
+            </h1>
+            
+            <p class="text-gray-400 text-base sm:text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed font-light">
+                We design and build robust backend engines, automated infrastructure layout layers, and tailored full-stack applications engineered for speed and ultimate scale.
+            </p>
 
-    <!-- Capabilities Blueprint Grid -->
-    <section id="services" class="max-w-5xl mx-auto px-6 py-20 border-t border-gray-900">
-        <h2 class="text-2xl font-bold tracking-tight mb-12">Core Capabilities</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="p-8 rounded-2xl bg-gray-900/40 border border-gray-800/60 hover:border-blue-500/30 transition group">
-                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold mb-6 group-hover:scale-110 transition">💻</div>
-                <h3 class="text-lg font-semibold mb-2">Full-Stack Application Delivery</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Building modern, responsive frontend frameworks natively linked to reliable database structures and clean web layers.</p>
+            <!-- Interactive UI Tech Widget (Amaze Factor) -->
+            <div class="mt-16 max-w-3xl mx-auto bg-gray-900/30 border border-white/[0.06] rounded-2xl p-4 md:p-6 backdrop-blur-sm shadow-2xl text-left shadow-black/40 relative group hover:border-white/[0.1] transition-all duration-300">
+                <div class="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/40"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/40"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/40"></span>
+                        <span class="text-xs text-gray-500 font-medium tracking-wide ml-2 mono">appology_daemon.sh</span>
+                    </div>
+                    <span class="text-[11px] font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded mono border border-emerald-500/20">LIVE COMPILING</span>
+                </div>
+                <div class="space-y-2 font-mono text-xs sm:text-sm text-gray-400 overflow-x-auto whitespace-nowrap py-1 scrollbar-none">
+                    <p class="text-gray-500">&gt; initialising core microservice allocation cluster...</p>
+                    <p>&gt; telemetry verified: <span class="text-blue-400">async_state_routines</span> initiated [OK]</p>
+                    <p>&gt; linking relational mappings via ORM controller modules...</p>
+                    <p>&gt; deployment state status: <span class="text-purple-400">Appology System Ingestion Active</span> (0.42ms processing latency)</p>
+                </div>
             </div>
-            <div class="p-8 rounded-2xl bg-gray-900/40 border border-gray-800/60 hover:border-indigo-500/30 transition group">
-                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold mb-6 group-hover:scale-110 transition">⚙️</div>
-                <h3 class="text-lg font-semibold mb-2">Robust Backend Systems</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Designing structured relational databases, object-relational mappings, and optimized computational modules.</p>
-            </div>
-            <div class="p-8 rounded-2xl bg-gray-900/40 border border-gray-800/60 hover:border-purple-500/30 transition group">
-                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 font-bold mb-6 group-hover:scale-110 transition">⚡</div>
-                <h3 class="text-lg font-semibold mb-2">Automation Tooling</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Developing tailored internal toolsets, scrapers, and operational code engines to speed up organizational output.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Aero Code Proprietary App Production Showcase -->
-    <section id="apps" class="max-w-5xl mx-auto px-6 py-20 border-t border-gray-900">
-        <div class="flex items-center justify-between mb-12">
-            <h2 class="text-2xl font-bold tracking-tight">Aero Code App Pipeline</h2>
-            <span class="text-xs font-semibold text-gray-500 tracking-wider uppercase">Active Development</span>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- App 1: AeroFlow Core -->
-            <div class="group relative bg-gray-900/20 border border-gray-800/60 rounded-2xl overflow-hidden hover:border-blue-500/20 transition">
-                <div class="p-8">
-                    <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded">System Tooling</span>
-                    <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-blue-400 transition">AeroFlow Core</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">A modular systems framework designed to manage background orchestration routines, database state verification, and automated routing pipelines.</p>
-                    <div class="flex gap-3 text-xs font-mono text-gray-400">
-                        <span>Database Engines</span> • <span>State Routines</span> • <span>Core Architecture</span>
+        <!-- Capabilities Grid Blueprint -->
+        <section id="capabilities" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/[0.06]">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-blue-400 uppercase mono">OPERATIONAL BASE</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Core Capabilities</h2>
+                </div>
+                <p class="text-gray-400 text-sm max-w-md font-light leading-relaxed">
+                    Utilizing clean, deterministic programming methodologies to build scalable platforms that optimize business operations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] hover:border-blue-500/30 transition-all duration-300 group hover:-translate-y-1 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-lg shadow-inner group-hover:scale-110 transition-transform duration-300">💻</div>
+                    <h3 class="text-lg font-bold text-white mt-6 mb-2">Full-Stack Architecture</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">Building modern web client systems connected directly to blazing-fast backend application routing loops.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] hover:border-indigo-500/30 transition-all duration-300 group hover:-translate-y-1 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-lg shadow-inner group-hover:scale-110 transition-transform duration-300">⚙️</div>
+                    <h3 class="text-lg font-bold text-white mt-6 mb-2">Automated Systems</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">Designing structured schemas, custom database optimization parameters, and background pipeline managers.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-8 rounded-2xl bg-gradient-to-b from-white/[0.03] to-transparent border border-white/[0.05] hover:border-purple-500/30 transition-all duration-300 group hover:-translate-y-1 sm:col-span-2 lg:col-span-1 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-lg shadow-inner group-hover:scale-110 transition-transform duration-300">⚡</div>
+                    <h3 class="text-lg font-bold text-white mt-6 mb-2">Automation Tooling</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">Developing bespoke scripting engines and low-latency tools designed to accelerate output frameworks.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Pipeline Blueprint Showcase -->
+        <section id="pipeline" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/[0.06]">
+            <div class="flex items-center justify-between mb-16">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-indigo-400 uppercase mono">PROPRIETARY ECOSYSTEM</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mt-1">Production App Pipeline</h2>
+                </div>
+                <span class="hidden sm:inline-flex text-xs font-semibold font-mono text-gray-500 bg-white/[0.02] px-3 py-1.5 rounded-lg border border-white/[0.05]">STABLE STAGED DEPLOYMENTS</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pipeline Item 1 -->
+                <div class="group relative bg-white/[0.01] border border-white/[0.05] rounded-2xl overflow-hidden hover:border-blue-500/20 transition-all duration-300 p-8 flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md border border-blue-500/10 tracking-wider uppercase font-medium">Orchestration Base</span>
+                            <span class="text-xs text-gray-500 mono font-light">v1.4.0</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-5 mb-2 group-hover:text-blue-400 transition-colors duration-200">Flow Core Engine</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-light mb-8">A highly modular orchestration controller engineered to run background system tasks, coordinate complex state loops, and manage transaction routes.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono text-gray-400 bg-white/[0.02] p-3 rounded-xl border border-white/[0.03]">
+                        <span class="text-gray-300">State Verifiers</span> <span class="text-gray-600">•</span> 
+                        <span class="text-gray-300">Relational DB</span> <span class="text-gray-600">•</span> 
+                        <span class="text-gray-300">System Execution</span>
+                    </div>
+                </div>
+
+                <!-- Pipeline Item 2 -->
+                <div class="group relative bg-white/[0.01] border border-white/[0.05] rounded-2xl overflow-hidden hover:border-indigo-500/20 transition-all duration-300 p-8 flex flex-col justify-between shadow-xl">
+                    <div>
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-[10px] font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/10 tracking-wider uppercase font-medium">Application Frontend</span>
+                            <span class="text-xs text-gray-500 mono font-light">v1.0.2</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-5 mb-2 group-hover:text-indigo-400 transition-colors duration-200">Appology UI Suite</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed font-light mb-8">A curated environment of performant web user interfaces structured on rigorous design guides to prioritize visual alignment, lightning speeds, and simple monitoring inputs.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono text-gray-400 bg-white/[0.02] p-3 rounded-xl border border-white/[0.03]">
+                        <span class="text-gray-300">Responsive Layouts</span> <span class="text-gray-600">•</span> 
+                        <span class="text-gray-300">Unified Elements</span> <span class="text-gray-600">•</span> 
+                        <span class="text-gray-300">REST Integrations</span>
                     </div>
                 </div>
             </div>
-            <!-- App 2: AeroUI Suite -->
-            <div class="group relative bg-gray-900/20 border border-gray-800/60 rounded-2xl overflow-hidden hover:border-indigo-500/20 transition">
-                <div class="p-8">
-                    <span class="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded">Application Platform</span>
-                    <h3 class="text-xl font-bold mt-4 mb-2 group-hover:text-indigo-400 transition">AeroUI Platform Suite</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">A production collection of optimized web user interfaces built with strict design principles, focusing on speed, clean layouts, and simple system management.</p>
-                    <div class="flex gap-3 text-xs font-mono text-gray-400">
-                        <span>Web Interface</span> • <span>Component Frameworks</span> • <span>API Integration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Structural Footer -->
-    <footer class="border-t border-gray-900 bg-[#070A12] text-gray-500 text-xs py-12">
-        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 Aero Code. All engineering rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="mailto:aerocode95@gmail.com" class="hover:text-gray-300 transition">Business Desk</a>
+    <!-- Refined Corporate Footer -->
+    <footer class="border-t border-white/[0.06] bg-[#02040a] text-gray-500 text-xs py-12 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+                <p class="font-medium text-gray-400">&copy; 2026 Appology Systems Inc. All rights reserved.</p>
+                <p class="text-[11px] text-gray-600 mt-0.5">Engineered with absolute precision.</p>
+            </div>
+            <div class="flex gap-8 font-medium">
+                <a href="mailto:aerocode95@gmail.com" class="text-gray-400 hover:text-white transition">Inquiries Desk</a>
+                <a href="#capabilities" class="hover:text-gray-300 transition">Systems Base</a>
             </div>
         </div>
     </footer>
 
-    <!-- Matrix Code Matrix Logic Script -->
+    <!-- High-Performance Matrix Code Stream Logic -->
     <script>
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
 
-        // Match resolution boundaries
-        canvas.width = 40;
-        canvas.height = 40;
+        // Square Aspect Ratio Scaling Boundary
+        canvas.width = 44;
+        canvas.height = 44;
 
-        const letters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>[]{}/\\';
-        const fontSize = 9;
+        const alphabet = '01XYZ<>[]{}/\\';
+        const fontSize = 10;
         const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
+        const rainDrops = Array(Math.ceil(columns)).fill(1);
 
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(11, 15, 25, 0.15)'; // Deep space background mask
+        function drawMatrixStream() {
+            // Semi-transparent overlay mask to create high-speed drop trailing effects
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.2)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#10B981'; // Sharp matrix digital emerald
-            ctx.font = fontSize + 'px monospace';
+            ctx.fillStyle = '#10B981'; // Vivid cyber emerald tone
+            ctx.font = 'bold ' + fontSize + 'px monospace';
 
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters[Math.floor(Math.random() * letters.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            for (let x = 0; x < rainDrops.length; x++) {
+                const textCharacter = alphabet[Math.floor(Math.random() * alphabet.length)];
+                ctx.fillText(textCharacter, x * fontSize, rainDrops[x] * fontSize);
 
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
-                    drops[i] = 0;
+                if (rainDrops[x] * fontSize > canvas.height && Math.random() > 0.96) {
+                    rainDrops[x] = 0;
                 }
-                drops[i]++;
+                rainDrops[x]++;
             }
         }
 
-        setInterval(drawMatrix, 65);
+        // Run animation loop smoothly at standard speed matrix cycle metrics
+        setInterval(drawMatrixStream, 75);
+
+        // Responsive Hamburger Drawer Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
