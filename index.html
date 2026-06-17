@@ -7,21 +7,79 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020205; }
         
-        /* Smooth moving background ambient glows */
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #020205; 
+            --cursor-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Ambient glows animation */
         @keyframes pulseGlow {
             0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.4; }
             50% { transform: scale(1.1) translate(30px, -20px); opacity: 0.6; }
         }
         .animate-glow { animation: pulseGlow 12s infinite ease-in-out; }
 
-        /* Elegant custom rotational animation for the logo */
-        @keyframes slowSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* MULTI-LINE TYPING ANIMATION RULES */
+        .typing-line {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            border-right: 2px solid transparent; /* The blinking cursor */
+            animation-fill-mode: forwards;
         }
-        .animate-slow-spin { animation: slowSpin 8s linear infinite; }
+
+        /* Define character counts for steps() (We build clean, = 15 chars) */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        /* Cursor Blinking Animation */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--cursor-color); }
+        }
+
+        /* Sequential Timing for lines */
+        #typing-line-1 {
+            animation: typing 1.5s steps(15) 0.5s forwards, blink-caret 0.7s step-end 0.5s 2;
+        }
+        #typing-line-2 {
+            animation: typing 2.2s steps(22) 2.1s forwards, blink-caret 0.7s step-end 2.1s 3;
+        }
+        #typing-line-3 {
+            animation: typing 1.8s steps(18) 4.2s forwards; /* No cursor on last line after done */
+            border-right: none;
+        }
+        /* Initial cursor setup for the current active line */
+        #typing-line-2, #typing-line-3 { border-color: transparent; }
+        
+        /* Trigger cursors sequentially based on timing */
+        @keyframes activate-cursor { to { border-color: var(--cursor-color); } }
+        #typing-line-2 { animation: typing 2.2s steps(22) 2.1s forwards, activate-cursor 0s 2.1s forwards, blink-caret 0.7s step-end 2.1s 3; }
+
+        /* "SHINING SHIMMER PASSING THROUGH BLADE" ANIMATION */
+        .blade-shine {
+            position: relative;
+            background: linear-gradient(
+                110deg,
+                #9ca3af 30%,
+                #f9fafb 50%,
+                #9ca3af 70%
+            );
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: shine 3.5s linear infinite;
+        }
+        @keyframes shine {
+            0% { background-position: 100%; }
+            100% { background-position: -100%; }
+        }
     </style>
 </head>
 <body class="text-gray-200 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
@@ -29,11 +87,19 @@
     <div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-bl from-blue-600/20 via-purple-600/10 to-transparent rounded-full blur-[140px] pointer-events-none animate-glow z-0"></div>
     <div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-tr from-indigo-600/10 via-transparent to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-    <header class="w-full px-6 md:px-12 lg:px-20 py-8 relative z-10 flex items-center justify-between border-b border-white/[0.04] backdrop-blur-md bg-[#020205]/40">
+    <header class="w-full px-6 md:px-12 lg:px-20 py-7 relative z-10 flex items-center justify-between border-b border-white/[0.04] backdrop-blur-md bg-[#020205]/40">
         <div class="flex items-center gap-3.5">
-            <div class="w-3.5 h-3.5 bg-gradient-to-tr from-blue-500 via-indigo-400 to-purple-500 rounded-sm animate-slow-spin shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
-            <span class="text-lg font-bold tracking-tight text-white">Appology Inc.</span>
+            <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center">
+                <span class="text-blue-400">App</span>ology
+            </a>
+            
+            <span class="h-4 w-px bg-white/[0.08]"></span>
+            
+            <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Software Development Studio
+            </span>
         </div>
+        
         <a href="mailto:aerocode95@gmail.com" class="text-sm font-medium text-gray-400 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/[0.08] hover:border-white/20 bg-white/[0.02]">
             Contact Studio
         </a>
@@ -42,16 +108,14 @@
     <main class="w-full px-6 md:px-12 lg:px-20 pt-16 pb-24 md:pt-24 md:pb-36 relative z-10 flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 w-full items-start">
             
-            <div class="lg:col-span-6 space-y-6 lg:sticky lg:top-32">
-                <span class="text-xs font-semibold tracking-widest text-blue-400 uppercase bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20 inline-block">
-                    Software Development Studio
-                </span>
+            <div class="lg:col-span-6 lg:sticky lg:top-32 h-[350px]">
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-                    We build clean, <br />
-                    <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">high-performance</span> <br />
-                    applications.
+                    <span id="typing-line-1" class="typing-line">We build clean,</span>
+                    <span id="typing-line-2" class="typing-line bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">high-performance</span>
+                    <span id="typing-line-3" class="typing-line">applications.</span>
                 </h1>
-                <p class="text-gray-400 text-sm sm:text-base md:text-lg max-w-xl font-light leading-relaxed">
+                
+                <p class="blade-shine text-sm sm:text-base md:text-lg max-w-xl font-light leading-relaxed mt-7">
                     A software studio focused on creating fast, reliable, and beautifully functional digital systems. No clutter, just engineered quality.
                 </p>
             </div>
