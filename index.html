@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appology</title>
+    <title>Appology | Software Development Studio</title>
+    
+    <meta property="og:title" content="Appology Inc. | Software Development Studio">
+    <meta property="og:description" content="A software development studio focused on creating fast, reliable, and beautifully functional digital systems.">
+    <meta property="og:type" content="website">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
@@ -119,7 +124,7 @@
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div class="lg:col-span-7 xl:col-span-7 flex flex-col justify-center overflow-visible min-h-[180px] sm:min-h-[260px] md:min-h-[300px]">
-                <h1 class="text-3xl sm:text-5xl md:text-5xl xl:text-6xl font-extrabold tracking-tight text-white flex flex-col overflow-visible space-y-1">
+                <h1 class="text-[26px] sm:text-5xl md:text-5xl xl:text-6xl font-extrabold tracking-tight text-white flex flex-col overflow-visible space-y-1">
                     <span class="flex items-center overflow-visible">
                         <span id="line1"></span>
                         <span id="cursor1" class="w-[3px] h-[0.75em] bg-blue-400 ml-2 inline-block animate-cursor-blink"></span>
@@ -140,7 +145,7 @@
             </div>
 
             <div class="lg:col-span-5 xl:col-span-5 w-full flex justify-center lg:justify-end">
-                <div class="w-full max-w-md lg:max-w-full bg-white/[0.01] border border-white/[0.04] rounded-2xl p-6 backdrop-blur-xl shadow-2xl relative group overflow-hidden">
+                <div class="w-full max-w-md lg:max-w-full bg-white/[0.01] border border-white/[0.04] hover:border-white/[0.12] rounded-2xl p-6 backdrop-blur-xl shadow-2xl hover:shadow-[0_0_30px_rgba(59,130,246,0.04)] relative group overflow-hidden transition-all duration-300">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/15 transition-all duration-500"></div>
                     
                     <div class="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-6">
@@ -207,6 +212,13 @@
             // Close automatically if clicking anywhere outside the active boundary zone
             document.addEventListener("click", (e) => {
                 if (!dropdownContainer.contains(e.target)) {
+                    closeDropdown();
+                }
+            });
+
+            // Keyboard Accessibility: Close dropdown with Escape key
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
                     closeDropdown();
                 }
             });
