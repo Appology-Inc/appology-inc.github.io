@@ -15,25 +15,52 @@
         
         /* Smooth moving background ambient glows */
         @keyframes pulseGlow {
-            0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
-            50% { transform: scale(1.08) translate(20px, -10px); opacity: 0.5; }
+            0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.2; }
+            50% { transform: scale(1.05) translate(10px, -10px); opacity: 0.35; }
         }
         .animate-glow { animation: pulseGlow 12s infinite ease-in-out; }
 
-        /* Sleek terminal cursor blink */
+        /* Terminal cursor blink */
         @keyframes cursorBlink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
         .animate-cursor-blink { animation: cursorBlink 0.9s infinite; }
 
-        /* Premium Blade Shine Text Effect */
+        /* Custom rotational animation for the logo icon */
+        @keyframes slowSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-slow-spin { animation: slowSpin 8s linear infinite; }
+
+        /* Seamless color flow inside main brand mark */
+        @keyframes gradient-text-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .animate-gradient-text {
+            background: linear-gradient(
+                270deg, 
+                #3B82F6 0%,  
+                #6366F1 35%, 
+                #A855F7 65%, 
+                #3B82F6 100% 
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient-text-flow 6s linear infinite;
+        }
+
+        /* Blade Shine Text Effect (Sub-headline) */
         .blade-shine {
             position: relative;
             background: linear-gradient(
                 110deg,
                 #9ca3af 35%,
-                #ffffff 50%,
+                #f9fafb 50%,
                 #9ca3af 65%
             );
             background-size: 200% 100%;
@@ -48,68 +75,66 @@
         }
     </style>
 </head>
-<body class="text-gray-200 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+<body class="text-gray-200 min-h-screen flex flex-col justify-between relative overflow-x-hidden antialiased">
 
-    <div class="absolute top-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-gradient-to-bl from-blue-600/15 via-purple-600/5 to-transparent rounded-full blur-[140px] pointer-events-none animate-glow z-0"></div>
-    <div class="absolute bottom-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-gradient-to-tr from-indigo-600/10 via-transparent to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] bg-gradient-to-bl from-blue-600/10 via-purple-600/5 to-transparent rounded-full blur-[140px] pointer-events-none animate-glow z-0"></div>
+    <div class="absolute bottom-[-10%] left-[-5%] w-[45vw] h-[45vw] bg-gradient-to-tr from-indigo-600/10 via-transparent to-transparent rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-    <header class="w-full px-6 md:px-12 lg:px-20 py-6 relative z-10 flex items-center justify-between border-b border-white/[0.04] backdrop-blur-md bg-[#020205]/40">
-        <div class="flex items-center gap-4">
-            <div class="text-lg font-bold tracking-tight text-white flex items-center">
-                <span class="text-blue-400 font-extrabold">App</span>ology<span class="text-gray-400 font-normal text-xs ml-1">Inc.</span>
+    <header class="w-full px-6 md:px-12 lg:px-16 border-b border-white/[0.04] backdrop-blur-md bg-[#020205]/40 relative z-10">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-between py-5 sm:py-6">
+            <div class="flex items-center gap-3.5">
+                <div class="w-3.5 h-3.5 bg-gradient-to-tr from-blue-500 via-indigo-400 to-purple-500 rounded-sm shadow-[0_0_15px_rgba(99,102,241,0.5)] animate-slow-spin"></div>
+                <a href="#" class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center group">
+                    <span class="animate-gradient-text">
+                        Appology Inc.
+                    </span>
+                </a>
             </div>
-            
-            <span class="h-3 w-px bg-white/[0.12]"></span>
-            
-            <span class="text-[9px] font-bold tracking-[0.25em] text-gray-400 uppercase select-none">
-                Software Development Studio
-            </span>
+            <a href="mailto:aerocode95@gmail.com" class="text-[11px] sm:text-xs font-medium text-gray-400 hover:text-white transition-all px-3.5 sm:px-4 py-2 rounded-full border border-white/[0.06] hover:border-white/20 bg-white/[0.01] hover:bg-white/[0.04]">
+                Contact Studio
+            </a>
         </div>
-        
-        <a href="mailto:aerocode95@gmail.com" class="text-xs font-medium text-gray-400 hover:text-white transition-all px-4 py-2 rounded-full border border-white/[0.06] hover:border-white/20 bg-white/[0.01] hover:bg-white/[0.04]">
-            Contact Studio
-        </a>
     </header>
 
-    <main class="w-full px-6 md:px-12 lg:px-20 flex-grow flex items-center relative z-10 py-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 w-full items-center">
+    <main class="w-full flex-grow flex items-center px-6 md:px-12 lg:px-16 py-12 md:py-16 xl:py-24 relative z-10">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
             
-            <div class="lg:col-span-6 space-y-6 flex flex-col justify-center min-h-[280px]">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.2] flex flex-col">
-                    <span class="flex items-center">
+            <div class="lg:col-span-7 xl:col-span-6 flex flex-col justify-center overflow-visible min-h-[220px] sm:min-h-[300px] md:min-h-[340px] xl:min-h-[400px]">
+                <h1 class="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight text-white flex flex-col overflow-visible space-y-1">
+                    <span class="flex items-center overflow-visible">
                         <span id="line1"></span>
-                        <span id="cursor1" class="w-[3px] h-[0.8em] bg-blue-400 ml-1.5 inline-block animate-cursor-blink"></span>
+                        <span id="cursor1" class="w-[3px] h-[0.75em] bg-blue-400 ml-2 inline-block animate-cursor-blink"></span>
                     </span>
-                    <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent flex items-center">
-                        <span id="line2"></span>
-                        <span id="cursor2" class="w-[3px] h-[0.8em] bg-indigo-400 ml-1.5 inline-block hidden animate-cursor-blink"></span>
+                    <span class="flex items-center overflow-visible">
+                        <span id="line2" class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent inline-block py-1 sm:py-2 overflow-visible"></span>
+                        <span id="cursor2" class="w-[3px] h-[0.75em] bg-indigo-400 ml-2 inline-block hidden animate-cursor-blink"></span>
                     </span>
-                    <span class="flex items-center">
+                    <span class="flex items-center overflow-visible">
                         <span id="line3"></span>
-                        <span id="cursor3" class="w-[3px] h-[0.8em] bg-purple-400 ml-1.5 inline-block hidden animate-cursor-blink"></span>
+                        <span id="cursor3" class="w-[3px] h-[0.75em] bg-purple-400 ml-2 inline-block hidden animate-cursor-blink"></span>
                     </span>
                 </h1>
                 
-                <p class="blade-shine text-sm sm:text-base md:text-lg max-w-xl font-light leading-relaxed pt-2">
-                    A software studio focused on creating fast, reliable, and beautifully functional digital systems. No clutter, just engineered quality.
+                <p class="blade-shine text-xs sm:text-base md:text-lg xl:text-xl max-w-xl font-light leading-relaxed mt-5 sm:mt-6 md:mt-8">
+                    A software development studio focused on creating fast, reliable, and beautifully functional digital systems. No clutter, just engineered quality.
                 </p>
             </div>
 
-            <div class="lg:col-span-6 w-full">
-                <div class="bg-white/[0.01] border border-white/[0.04] rounded-3xl p-8 backdrop-blur-xl shadow-2xl relative group overflow-hidden">
+            <div class="lg:col-span-5 xl:col-span-6 w-full flex justify-center lg:justify-end">
+                <div class="w-full max-w-md lg:max-w-full bg-white/[0.01] border border-white/[0.04] rounded-2xl sm:rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl relative group overflow-hidden">
                     <div class="absolute -right-20 -top-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/15 transition-all duration-500"></div>
                     
-                    <div class="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-8">
-                        <h2 class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Studio Pipeline</h2>
-                        <span class="flex items-center gap-1.5 text-[10px] text-gray-500 font-medium">
+                    <div class="flex items-center justify-between border-b border-white/[0.06] pb-4 mb-6 sm:mb-8">
+                        <h2 class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-gray-400">Studio Pipeline</h2>
+                        <span class="flex items-center gap-1.5 text-[9px] sm:text-[10px] text-gray-500 font-medium">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
                             Active Build
                         </span>
                     </div>
 
-                    <div class="py-14 px-6 border border-dashed border-white/[0.05] rounded-2xl text-center bg-black/30">
+                    <div class="py-10 sm:py-14 px-4 sm:px-6 border border-dashed border-white/[0.05] rounded-xl sm:rounded-2xl text-center bg-black/30">
                         <div class="w-1.5 h-1.5 rounded-full bg-blue-400/80 mx-auto mb-3 animate-ping"></div>
-                        <p class="text-[10px] font-mono tracking-[0.15em] uppercase text-blue-400">Internal Engine Initialized</p>
+                        <p class="text-[9px] sm:text-[10px] font-mono tracking-[0.15em] uppercase text-blue-400">Internal Engine Initialized</p>
                         <p class="text-xs text-gray-400 mt-2.5 max-w-xs mx-auto font-light leading-relaxed">
                             Proprietary frameworks and client application pipelines are currently processing under encrypted, private organization slots.
                         </p>
@@ -120,8 +145,8 @@
         </div>
     </main>
 
-    <footer class="w-full px-6 md:px-12 lg:px-20 py-6 border-t border-white/[0.04] text-[11px] text-gray-500 relative z-10 bg-[#020205]/60 backdrop-blur-sm">
-        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+    <footer class="w-full px-6 md:px-12 lg:px-16 border-t border-white/[0.04] bg-[#020205]/60 backdrop-blur-sm relative z-10">
+        <div class="max-w-7xl mx-auto w-full py-5 sm:py-6 text-[10px] sm:text-[11px] text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-3">
             <span>&copy; 2026 Appology Inc. All rights reserved.</span>
         </div>
     </footer>
@@ -133,7 +158,7 @@
             const str3 = "applications.";
             
             let i = 0, j = 0, k = 0;
-            const speed = 60; // Typing pace per character
+            const speed = 65; 
 
             function typeLine1() {
                 if (i < str1.length) {
@@ -143,7 +168,7 @@
                 } else {
                     document.getElementById("cursor1").classList.add("hidden");
                     document.getElementById("cursor2").classList.remove("hidden");
-                    setTimeout(typeLine2, 150);
+                    setTimeout(typeLine2, 180);
                 }
             }
 
@@ -151,11 +176,11 @@
                 if (j < str2.length) {
                     document.getElementById("line2").innerHTML += str2.charAt(j);
                     j++;
-                    setTimeout(typeLine2, speed);
+                    setTimeout(typeLine2, speed - 10); 
                 } else {
                     document.getElementById("cursor2").classList.add("hidden");
                     document.getElementById("cursor3").classList.remove("hidden");
-                    setTimeout(typeLine3, 150);
+                    setTimeout(typeLine3, 180);
                 }
             }
 
@@ -165,11 +190,9 @@
                     k++;
                     setTimeout(typeLine3, speed);
                 }
-                // Cursor 3 stays unhidden to blink flawlessly at the end of the line.
             }
 
-            // Start typing sequences
-            setTimeout(typeLine1, 500);
+            setTimeout(typeLine1, 600);
         });
     </script>
 
